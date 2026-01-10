@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You! - Prompt Vault</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .success-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .success-content {
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #059669;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+        }
+
+        .success-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: white;
+        }
+
+        .success-content h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .success-content p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .instructions {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+
+        .instructions h3 {
+            margin-bottom: 1rem;
+        }
+
+        .instructions ol {
+            padding-left: 1.25rem;
+        }
+
+        .instructions li {
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        .home-link {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .home-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <main class="success-page">
+        <div class="success-content">
+            <div class="success-icon">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                </svg>
+            </div>
+
+            <h1>Thank You for Your Purchase!</h1>
+            <p>Your payment was successful. Check your email for the download link.</p>
+
+            <div class="instructions">
+                <h3>What happens next?</h3>
+                <ol>
+                    <li>You'll receive an email within a few minutes with your download link</li>
+                    <li>Check your spam folder if you don't see it</li>
+                    <li>Download your ZIP file containing all 500 prompts</li>
+                    <li>Start using the prompts with your favorite AI assistant</li>
+                </ol>
+            </div>
+
+            <p>Didn't receive your email? <a href="mailto:support@example.com" class="home-link">Contact support</a></p>
+
+            <p><a href="/" class="home-link">&larr; Back to homepage</a></p>
+        </div>
+    </main>
+</body>
+</html>

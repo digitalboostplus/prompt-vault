@@ -1,0 +1,22 @@
+{
+  "name": "prompt-vault",
+  "version": "1.0.0",
+  "description": "500 AI Prompts for Business Professionals",
+  "main": "deploy.js",
+  "scripts": {
+    "deploy": "node deploy.js",
+    "dev": "vercel dev",
+    "build": "node scripts/build-zip.js"
+  },
+  "dependencies": {
+    "stripe": "^14.0.0",
+    "resend": "^2.0.0",
+    "archiver": "^6.0.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

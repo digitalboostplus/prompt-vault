@@ -1,0 +1,35 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "site/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "downloads/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/site/$1"
+    }
+  ],
+  "env": {
+    "STRIPE_SECRET_KEY": "@stripe_secret_key",
+    "STRIPE_PRICE_ID": "@stripe_price_id",
+    "STRIPE_WEBHOOK_SECRET": "@stripe_webhook_secret",
+    "RESEND_API_KEY": "@resend_api_key",
+    "FROM_EMAIL": "@from_email",
+    "DOWNLOAD_SECRET": "@download_secret"
+  }
+}
