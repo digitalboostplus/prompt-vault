@@ -9,15 +9,21 @@
     "rewrites": [
       {
         "source": "/api/create-checkout",
-        "function": "createCheckout"
+        "function": {
+          "functionId": "createCheckout"
+        }
       },
       {
         "source": "/api/webhook",
-        "function": "webhook"
+        "function": {
+          "functionId": "webhook"
+        }
       },
       {
         "source": "/api/download",
-        "function": "download"
+        "function": {
+          "functionId": "download"
+        }
       },
       {
         "source": "**",
