@@ -7,7 +7,9 @@
     "deploy": "node deploy.js",
     "dev": "vercel dev",
     "build": "node scripts/build-zip.js",
-    "test": "jest"
+    "test": "jest",
+    "secrets:encrypt": "node scripts/secrets.js encrypt",
+    "secrets:decrypt": "node scripts/secrets.js decrypt"
   },
   "dependencies": {
     "@lydell/node-pty": "^1.2.0-beta.3",

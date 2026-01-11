@@ -27,6 +27,9 @@ jobs:
         env:
           ENV_ENCRYPTION_KEY: ${{ secrets.ENV_ENCRYPTION_KEY }}
 
+      - name: Setup environment for functions
+        run: cp .env functions/.env
+
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
