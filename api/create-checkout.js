@@ -7,13 +7,30 @@ module.exports = async (req, res) => {
         return res.status(405).json({ error: 'Method not allowed' });
     }
 
+    // Validate environment variables
+    if (!process.env.STRIPE_SECRET_KEY) {
+        console.error('Missing STRIPE_SECRET_KEY');
+        return res.status(500).json({ error: 'Server Misconfiguration: Missing Stripe Secret Key' });
+    }
+    if (!process.env.STRIPE_PRICE_ID) {
+        console.error('Missing STRIPE_PRICE_ID');
+        return res.status(500).json({ error: 'Server Misconfiguration: Missing Stripe Price ID' });
+    }
+
     try {
         const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
         // Get the base URL for redirects
-        const protocol = req.headers['x-forwarded-proto'] || 'https';
+        // Default to http for localhost, https otherwise
         const host = req.headers.host;
+        const protocol = req.headers['x-forwarded-proto'] || (host.includes('localhost') ? 'http' : 'https');
         const baseUrl = `${protocol}://${host}`;
+
+        console.log('Creating Checkout Session:', { 
+            baseUrl, 
+            priceId: process.env.STRIPE_PRICE_ID,
+            hasSecretKey: !!process.env.STRIPE_SECRET_KEY 
+        });
 
         // Create Stripe checkout session
         const session = await stripe.checkout.sessions.create({

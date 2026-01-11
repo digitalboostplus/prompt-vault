@@ -3,9 +3,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const checkoutButton = document.getElementById('checkout-button');
 
     if (checkoutButton) {
+        const originalText = checkoutButton.innerHTML;
+        
         checkoutButton.addEventListener('click', async function() {
             checkoutButton.disabled = true;
-            checkoutButton.textContent = 'Processing...';
+            checkoutButton.innerHTML = 'Processing...';
+            checkoutButton.classList.add('loading');
 
             try {
                 const response = await fetch('/api/create-checkout', {
@@ -24,9 +27,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             } catch (error) {
                 console.error('Checkout error:', error);
-                alert('Something went wrong. Please try again.');
+                alert(`Error: ${error.message}`);
                 checkoutButton.disabled = false;
-                checkoutButton.textContent = 'Get All 500 Prompts Now →';
+                checkoutButton.innerHTML = originalText;
+                checkoutButton.classList.remove('loading');
             }
         });
     }
